@@ -8,7 +8,7 @@ const TodoList = ({ todos })  => {
                 <Todo key={todo.id} {...todo}/>
             ))}
         </ul>
-    )
-}
+    );
+};
 
 export default TodoList

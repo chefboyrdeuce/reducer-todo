@@ -1,11 +1,12 @@
 import React from 'react';
 
-const Todo = ({ item, completed, id }) => {
+const Todo = ({ task, completed, id }) => {
+    console.log(task)
     return (
         <li>
-            {item}
+            {task}
         </li>
-    )
-}
+    
+)};
 
 export default Todo

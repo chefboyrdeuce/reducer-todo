@@ -1,13 +1,39 @@
-export const initialState = [
+import { ADD_TODO, CHANGE_TODO_TASK } from "./types";
+
+export const initialState = {
+    task: '',
+    todos: [
     {
-    item: 'Learn about reducers',
+    task: 'Learn about reducers',
     completed: false,
     id: 3892987589
     }
-];
+]
+};
 
 export function todoReducer (state, action){
-    return state;
+    switch (action.type) {
+        case ADD_TODO:
+            return {
+                ...state,
+                task: '',
+                todos: [
+                ...state.todos,
+                {
+                    item: action.payload,
+                    completed: false,
+                    id: Date.now()
+                }
+                ]
+            };
+            case CHANGE_TODO_TASK:
+                return {
+                    ...state,
+                    task: action.payload
+                };
+        default:    
+            return state;
+    }
 };
 
 
