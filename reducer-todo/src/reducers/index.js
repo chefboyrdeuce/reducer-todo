@@ -20,7 +20,7 @@ export function todoReducer (state, action){
                 todos: [
                 ...state.todos,
                 {
-                    item: action.payload,
+                    task: action.payload,
                     completed: false,
                     id: Date.now()
                 }
