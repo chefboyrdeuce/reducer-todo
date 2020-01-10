@@ -1,9 +1,10 @@
 import React from 'react';
+import { TOGGLE_TODO } from '../reducers/types';
 
-const Todo = ({ task, completed, id }) => {
+const Todo = ({ task, completed, id, toggleTodo }) => {
     console.log(task)
     return (
-        <li>
+        <li onClick={() => toggleTodo(id)} style = {completed ? {textDecoration: 'line-through'} : {}} >
             {task}
         </li>
     

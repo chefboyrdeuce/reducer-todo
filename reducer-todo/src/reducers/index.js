@@ -1,4 +1,4 @@
-import { ADD_TODO, CHANGE_TODO_TASK } from "./types";
+import { ADD_TODO, CHANGE_TODO_TASK, TOGGLE_TODO } from "./types";
 
 export const initialState = {
     task: '',
@@ -26,6 +26,19 @@ export function todoReducer (state, action){
                 }
                 ]
             };
+            case TOGGLE_TODO:
+                return {
+                    ...state,
+                    todos: state.todos.map(todo => {
+                        if (todo.id === action.payload){
+                            return{
+                                ...todo,
+                                completed: !todo.completed
+                            };
+                        }
+                        return todo;
+                    })
+                }
             case CHANGE_TODO_TASK:
                 return {
                     ...state,
