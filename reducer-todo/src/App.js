@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import { todoReducer, initialState } from './reducers/index';
 import TodoList from './components/TodoList';
-import { ADD_TODO, CHANGE_TODO_TASK, TOGGLE_TODO } from './reducers/types';
+import { ADD_TODO, CHANGE_TODO_TASK, TOGGLE_TODO, CLEAR_COMPLETED } from './reducers/types';
 import TodoForm from './components/TodoForm';
 import './App.css';
 
@@ -24,9 +24,15 @@ function App() {
     payload: event.target.value
   });
 
-  const toggleTodo = (id) => dispatch({
+  const toggleTodo = (id) => 
+  dispatch({
     type: TOGGLE_TODO,
     payload: id
+  });
+
+  const clearCompleted = ( ) => 
+  dispatch({
+    type: CLEAR_COMPLETED
   });
 
   return (
@@ -37,6 +43,7 @@ function App() {
         handleChange={handleChange} 
         task={state.task} 
         addTodo={addTodo}
+        clearCompleted={clearCompleted}
       /> 
     </div>
   );
